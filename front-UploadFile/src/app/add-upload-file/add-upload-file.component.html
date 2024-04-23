@@ -1,0 +1,43 @@
+<!-- <form (submit)="uploadFile()">
+    <mat-form-field>
+      <mat-label>Sélectionner un fichier :</mat-label>
+      <input multiple name="file"  type="file" (change)="selectFile($event)" >
+      <input id="test" type="text" class="form-control" readonly />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Importer</button>
+
+  </form> -->
+  
+  <form [formGroup]="FormArticle"   (ngSubmit)="uploadFile()">
+    <!-- <input multiple name="file" formControlName="_file" type="file" (change)="selectFile($event)"  style="display: none" > -->
+    <label class="input-group-btn">
+        Pièce jointe :
+        <span class="btn btn-info">
+            Sélectionner un fichier
+            <input type="file" (change)="selectFile($event)" formControlName="file" name="file" id="customFile" style="display: none" multiple />
+        </span>
+    </label>
+    <input id="test" type="text" class="form-control" [value]="selectedFileName" readonly />
+    <!-- <mat-form-field>
+      <input matInput type="text" formControlName="_file">
+      <input matInput id="test" type="text" formControlName="_file" class="form-control" readonly />
+    </mat-form-field>   -->
+      
+      <!-- <input id="test" type="text" class="form-control" readonly /> -->
+    
+    <button mat-raised-button color="primary" type="submit" >Importer</button>
+
+  </form>
+
+
+  <!-- <form [formGroup]="FormArticle" (ngSubmit)="uploadFile()">
+    <mat-form-field>
+      <mat-label>Sélectionner un fichier :</mat-label>
+      <input #fileInput type="file" (change)="selectFile($event)" style="display: none" multiple>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">Sélectionner</button>
+    <span>{{ selectedFiles }}</span>
+    <button mat-raised-button color="primary" type="submit">Importer</button>
+  </form> -->
+  
